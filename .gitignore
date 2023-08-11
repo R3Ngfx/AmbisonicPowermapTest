@@ -36,3 +36,4 @@ saf_ipp_custom.lib
 VTune Profiler Results/
 audio/
 out/
+.cache
