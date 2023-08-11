@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{F72378EE-1300-44EB-8472-3E0AE3AF43E8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <ProjectName>saf_test</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>../../dependencies/Win64/lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>../../dependencies/Win64/lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>../../dependencies/Win64/lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>../../dependencies/Win64/lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SAF_USE_INTEL_MKL;SAF_ENABLE_SOFA_READER</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../../framework/include;C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/mkl/include;../../dependencies/Win64/include;../unity;../timer;saf_test_vs2017;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>/../../dependencies/Win64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>saf_mkl_custom.lib;libszip.lib;libzlib.lib;libhdf5.lib;libhdf5_hl.lib;netcdf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SAF_USE_INTEL_MKL_LP64;SAF_USE_INTEL_IPP;SAF_ENABLE_SOFA_READER_MODULE;SAF_ENABLE_EXAMPLES_TESTS;_CRT_SECURE_NO_WARNINGS;SAF_ENABLE_TRACKER_MODULE;SAF_ENABLE_HADES_MODULE</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../../framework/include;../../examples/include;C:/Program Files (x86)/Intel/oneAPI/mkl/latest/include;../include;C:/Program Files (x86)/Intel/oneAPI/ipp/latest/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../../dependencies/Win64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>saf_mkl_custom_lp64.lib;saf_ipp_custom.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);SAF_USE_INTEL_MKL;SAF_ENABLE_SOFA_READER</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../../framework/include;C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/mkl/include;../../dependencies/Win64/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>/../../dependencies/Win64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>saf_mkl_custom.lib;libszip.lib;libzlib.lib;libhdf5.lib;libhdf5_hl.lib;netcdf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);SAF_USE_INTEL_MKL_LP64;SAF_USE_INTEL_IPP;SAF_ENABLE_SOFA_READER_MODULE;SAF_ENABLE_EXAMPLES_TESTS;_CRT_SECURE_NO_WARNINGS;SAF_ENABLE_TRACKER_MODULE;SAF_ENABLE_HADES_MODULE</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../../framework/include;../../examples/include;C:/Program Files (x86)/Intel/oneAPI/mkl/latest/include;../include;C:/Program Files (x86)/Intel/oneAPI/ipp/latest/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../../dependencies/Win64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>saf_mkl_custom_lp64.lib;saf_ipp_custom.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\examples\include\ambi_bin.h" />
+    <ClInclude Include="..\..\examples\include\ambi_dec.h" />
+    <ClInclude Include="..\..\examples\include\ambi_drc.h" />
+    <ClInclude Include="..\..\examples\include\ambi_enc.h" />
+    <ClInclude Include="..\..\examples\include\array2sh.h" />
+    <ClInclude Include="..\..\examples\include\beamformer.h" />
+    <ClInclude Include="..\..\examples\include\binauraliser.h" />
+    <ClInclude Include="..\..\examples\include\dirass.h" />
+    <ClInclude Include="..\..\examples\include\matrixconv.h" />
+    <ClInclude Include="..\..\examples\include\multiconv.h" />
+    <ClInclude Include="..\..\examples\include\panner.h" />
+    <ClInclude Include="..\..\examples\include\pitch_shifter.h" />
+    <ClInclude Include="..\..\examples\include\powermap.h" />
+    <ClInclude Include="..\..\examples\include\rotator.h" />
+    <ClInclude Include="..\..\examples\include\sldoa.h" />
+    <ClInclude Include="..\..\examples\include\spreader.h" />
+    <ClInclude Include="..\..\examples\include\_common.h" />
+    <ClInclude Include="..\..\examples\src\ambi_bin\ambi_bin_internal.h" />
+    <ClInclude Include="..\..\examples\src\ambi_dec\ambi_dec_internal.h" />
+    <ClInclude Include="..\..\examples\src\ambi_drc\ambi_drc_internal.h" />
+    <ClInclude Include="..\..\examples\src\ambi_enc\ambi_enc_internal.h" />
+    <ClInclude Include="..\..\examples\src\array2sh\array2sh_internal.h" />
+    <ClInclude Include="..\..\examples\src\beamformer\beamformer_internal.h" />
+    <ClInclude Include="..\..\examples\src\binauraliser\binauraliser_internal.h" />
+    <ClInclude Include="..\..\examples\src\dirass\dirass_internal.h" />
+    <ClInclude Include="..\..\examples\src\matrixconv\matrixconv_internal.h" />
+    <ClInclude Include="..\..\examples\src\multiconv\multiconv_internal.h" />
+    <ClInclude Include="..\..\examples\src\panner\panner_internal.h" />
+    <ClInclude Include="..\..\examples\src\pitch_shifter\pitch_shifter_internal.h" />
+    <ClInclude Include="..\..\examples\src\powermap\powermap_internal.h" />
+    <ClInclude Include="..\..\examples\src\rotator\rotator_internal.h" />
+    <ClInclude Include="..\..\examples\src\sldoa\sldoa_database.h" />
+    <ClInclude Include="..\..\examples\src\sldoa\sldoa_internal.h" />
+    <ClInclude Include="..\..\examples\src\spreader\spreader_internal.h" />
+    <ClInclude Include="..\..\framework\include\saf.h" />
+    <ClInclude Include="..\..\framework\modules\saf_cdf4sap\saf_cdf4sap.h" />
+    <ClInclude Include="..\..\framework\modules\saf_hades\saf_hades.h" />
+    <ClInclude Include="..\..\framework\modules\saf_hades\saf_hades_analysis.h" />
+    <ClInclude Include="..\..\framework\modules\saf_hades\saf_hades_internal.h" />
+    <ClInclude Include="..\..\framework\modules\saf_hades\saf_hades_synthesis.h" />
+    <ClInclude Include="..\..\framework\modules\saf_hoa\saf_hoa.h" />
+    <ClInclude Include="..\..\framework\modules\saf_hoa\saf_hoa_internal.h" />
+    <ClInclude Include="..\..\framework\modules\saf_hrir\saf_hrir.h" />
+    <ClInclude Include="..\..\framework\modules\saf_reverb\saf_reverb.h" />
+    <ClInclude Include="..\..\framework\modules\saf_reverb\saf_reverb_internal.h" />
+    <ClInclude Include="..\..\framework\modules\saf_sh\saf_sh.h" />
+    <ClInclude Include="..\..\framework\modules\saf_sh\saf_sh_internal.h" />
+    <ClInclude Include="..\..\framework\modules\saf_sofa_reader\libmysofa\internal\hdf_reader.h" />
+    <ClInclude Include="..\..\framework\modules\saf_sofa_reader\libmysofa\internal\kdtree.h" />
+    <ClInclude Include="..\..\framework\modules\saf_sofa_reader\libmysofa\internal\mysofa_internal.h" />
+    <ClInclude Include="..\..\framework\modules\saf_sofa_reader\libmysofa\mysofa.h" />
+    <ClInclude Include="..\..\framework\modules\saf_sofa_reader\saf_sofa_reader.h" />
+    <ClInclude Include="..\..\framework\modules\saf_tracker\saf_tracker.h" />
+    <ClInclude Include="..\..\framework\modules\saf_tracker\saf_tracker_internal.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utilities.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_bessel.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_complex.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_decor.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_dvf.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_fft.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_filters.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_geometry.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_loudspeaker_presets.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_matrixConv.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_misc.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_pitch.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_qmf.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_sensorarray_presets.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_sort.h" />
+    <ClInclude Include="..\..\framework\modules\saf_utilities\saf_utility_veclib.h" />
+    <ClInclude Include="..\..\framework\modules\saf_vbap\saf_vbap.h" />
+    <ClInclude Include="..\..\framework\modules\saf_vbap\saf_vbap_internal.h" />
+    <ClInclude Include="..\..\framework\resources\afSTFT\afSTFTlib.h" />
+    <ClInclude Include="..\..\framework\resources\afSTFT\afSTFT_internal.h" />
+    <ClInclude Include="..\..\framework\resources\afSTFT\afSTFT_protoFilter.h" />
+    <ClInclude Include="..\..\framework\resources\convhull_3d\convhull_3d.h" />
+    <ClInclude Include="..\..\framework\resources\kissFFT\kiss_fft.h" />
+    <ClInclude Include="..\..\framework\resources\kissFFT\kiss_fftr.h" />
+    <ClInclude Include="..\..\framework\resources\kissFFT\_kiss_fft_guts.h" />
+    <ClInclude Include="..\..\framework\resources\md_malloc\md_malloc.h" />
+    <ClInclude Include="..\..\framework\resources\speex_resampler\arch.h" />
+    <ClInclude Include="..\..\framework\resources\speex_resampler\os_support.h" />
+    <ClInclude Include="..\..\framework\resources\speex_resampler\resample_neon.h" />
+    <ClInclude Include="..\..\framework\resources\speex_resampler\resample_sse.h" />
+    <ClInclude Include="..\..\framework\resources\speex_resampler\speexdsp_types.h" />
+    <ClInclude Include="..\..\framework\resources\speex_resampler\speex_resampler.h" />
+    <ClInclude Include="..\..\framework\resources\zlib\crc32.h" />
+    <ClInclude Include="..\..\framework\resources\zlib\deflate.h" />
+    <ClInclude Include="..\..\framework\resources\zlib\inffast.h" />
+    <ClInclude Include="..\..\framework\resources\zlib\inffixed.h" />
+    <ClInclude Include="..\..\framework\resources\zlib\inflate.h" />
+    <ClInclude Include="..\..\framework\resources\zlib\inftrees.h" />
+    <ClInclude Include="..\..\framework\resources\zlib\trees.h" />
+    <ClInclude Include="..\..\framework\resources\zlib\zconf.h" />
+    <ClInclude Include="..\..\framework\resources\zlib\zlib.h" />
+    <ClInclude Include="..\..\framework\resources\zlib\zutil.h" />
+    <ClInclude Include="..\include\resources\timer.h" />
+    <ClInclude Include="..\include\resources\unity.h" />
+    <ClInclude Include="..\include\resources\unity_internals.h" />
+    <ClInclude Include="..\saf_test.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\examples\src\ambi_bin\ambi_bin.c" />
+    <ClCompile Include="..\..\examples\src\ambi_bin\ambi_bin_internal.c" />
+    <ClCompile Include="..\..\examples\src\ambi_dec\ambi_dec.c" />
+    <ClCompile Include="..\..\examples\src\ambi_dec\ambi_dec_internal.c" />
+    <ClCompile Include="..\..\examples\src\ambi_drc\ambi_drc.c" />
+    <ClCompile Include="..\..\examples\src\ambi_drc\ambi_drc_internal.c" />
+    <ClCompile Include="..\..\examples\src\ambi_enc\ambi_enc.c" />
+    <ClCompile Include="..\..\examples\src\ambi_enc\ambi_enc_internal.c" />
+    <ClCompile Include="..\..\examples\src\array2sh\array2sh.c" />
+    <ClCompile Include="..\..\examples\src\array2sh\array2sh_internal.c" />
+    <ClCompile Include="..\..\examples\src\beamformer\beamformer.c" />
+    <ClCompile Include="..\..\examples\src\beamformer\beamformer_internal.c" />
+    <ClCompile Include="..\..\examples\src\binauraliser\binauraliser.c" />
+    <ClCompile Include="..\..\examples\src\binauraliser\binauraliser_internal.c" />
+    <ClCompile Include="..\..\examples\src\dirass\dirass.c" />
+    <ClCompile Include="..\..\examples\src\dirass\dirass_internal.c" />
+    <ClCompile Include="..\..\examples\src\matrixconv\matrixconv.c" />
+    <ClCompile Include="..\..\examples\src\matrixconv\matrixconv_internal.c" />
+    <ClCompile Include="..\..\examples\src\multiconv\multiconv.c" />
+    <ClCompile Include="..\..\examples\src\multiconv\multiconv_internal.c" />
+    <ClCompile Include="..\..\examples\src\panner\panner.c" />
+    <ClCompile Include="..\..\examples\src\panner\panner_internal.c" />
+    <ClCompile Include="..\..\examples\src\pitch_shifter\pitch_shifter.c" />
+    <ClCompile Include="..\..\examples\src\pitch_shifter\pitch_shifter_internal.c" />
+    <ClCompile Include="..\..\examples\src\powermap\powermap.c" />
+    <ClCompile Include="..\..\examples\src\powermap\powermap_internal.c" />
+    <ClCompile Include="..\..\examples\src\rotator\rotator.c" />
+    <ClCompile Include="..\..\examples\src\rotator\rotator_internal.c" />
+    <ClCompile Include="..\..\examples\src\sldoa\sldoa.c" />
+    <ClCompile Include="..\..\examples\src\sldoa\sldoa_database.c" />
+    <ClCompile Include="..\..\examples\src\sldoa\sldoa_internal.c" />
+    <ClCompile Include="..\..\examples\src\spreader\spreader.c" />
+    <ClCompile Include="..\..\examples\src\spreader\spreader_internal.c" />
+    <ClCompile Include="..\..\framework\modules\saf_cdf4sap\saf_cdf4sap.c" />
+    <ClCompile Include="..\..\framework\modules\saf_hades\saf_hades_analysis.c" />
+    <ClCompile Include="..\..\framework\modules\saf_hades\saf_hades_internal.c" />
+    <ClCompile Include="..\..\framework\modules\saf_hades\saf_hades_synthesis.c" />
+    <ClCompile Include="..\..\framework\modules\saf_hoa\saf_hoa.c" />
+    <ClCompile Include="..\..\framework\modules\saf_hoa\saf_hoa_internal.c" />
+    <ClCompile Include="..\..\framework\modules\saf_hrir\saf_default_hrirs.c" />
+    <ClCompile Include="..\..\framework\modules\saf_hrir\saf_hrir.c" />
+    <ClCompile Include="..\..\framework\modules\saf_reverb\saf_reverb.c" />
+    <ClCompile Include="..\..\framework\modules\saf_reverb\saf_reverb_internal.c" />
+    <ClCompile Include="..\..\framework\modules\saf_sh\saf_sh.c" />
+    <ClCompile Include="..\..\framework\modules\saf_sh\saf_sh_internal.c" />
+    <ClCompile Include="..\..\framework\modules\saf_sofa_reader\libmysofa\internal\hdf_dataobject.c" />
+    <ClCompile Include="..\..\framework\modules\saf_sofa_reader\libmysofa\internal\hdf_fractalhead.c" />
+    <ClCompile Include="..\..\framework\modules\saf_sofa_reader\libmysofa\internal\hdf_reader.c" />
+    <ClCompile Include="..\..\framework\modules\saf_sofa_reader\libmysofa\internal\kdtree.c" />
+    <ClCompile Include="..\..\framework\modules\saf_sofa_reader\libmysofa\internal\mysofa_internal.c" />
+    <ClCompile Include="..\..\framework\modules\saf_sofa_reader\libmysofa\mysofa.c" />
+    <ClCompile Include="..\..\framework\modules\saf_sofa_reader\saf_sofa_reader.c" />
+    <ClCompile Include="..\..\framework\modules\saf_tracker\saf_tracker.c" />
+    <ClCompile Include="..\..\framework\modules\saf_tracker\saf_tracker_internal.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_bessel.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_complex.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_decor.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_dvf.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_fft.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_filters.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_geometry.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_latticeCoeffs.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_loudspeaker_presets.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_matrixConv.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_misc.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_pitch.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_qmf.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_sensorarray_presets.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_sort.c" />
+    <ClCompile Include="..\..\framework\modules\saf_utilities\saf_utility_veclib.c" />
+    <ClCompile Include="..\..\framework\modules\saf_vbap\saf_vbap.c" />
+    <ClCompile Include="..\..\framework\modules\saf_vbap\saf_vbap_internal.c" />
+    <ClCompile Include="..\..\framework\resources\afSTFT\afSTFTlib.c" />
+    <ClCompile Include="..\..\framework\resources\afSTFT\afSTFT_internal.c" />
+    <ClCompile Include="..\..\framework\resources\convhull_3d\convhull_3d.c" />
+    <ClCompile Include="..\..\framework\resources\kissFFT\kiss_fft.c" />
+    <ClCompile Include="..\..\framework\resources\kissFFT\kiss_fftr.c" />
+    <ClCompile Include="..\..\framework\resources\md_malloc\md_malloc.c" />
+    <ClCompile Include="..\..\framework\resources\speex_resampler\resample.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\adler32.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\compress.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\crc32.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\deflate.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\infback.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\inffast.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\inflate.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\inftrees.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\trees.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\uncompr.c" />
+    <ClCompile Include="..\..\framework\resources\zlib\zutil.c" />
+    <ClCompile Include="..\src\resources\timer.c" />
+    <ClCompile Include="..\src\resources\unity.c" />
+    <ClCompile Include="..\src\saf_test.c" />
+    <ClCompile Include="..\src\saf_test_wrapper.cpp" />
+    <ClCompile Include="..\src\test__cdf4sap_module.c" />
+    <ClCompile Include="..\src\test__examples.c" />
+    <ClCompile Include="..\src\test__hades_module.c" />
+    <ClCompile Include="..\src\test__hoa_module.c" />
+    <ClCompile Include="..\src\test__hrir_module.c" />
+    <ClCompile Include="..\src\test__resources.c" />
+    <ClCompile Include="..\src\test__reverb_module.c" />
+    <ClCompile Include="..\src\test__sh_module.c" />
+    <ClCompile Include="..\src\test__sofa_reader_module.c" />
+    <ClCompile Include="..\src\test__tracker_module.c" />
+    <ClCompile Include="..\src\test__utilities_module.c" />
+    <ClCompile Include="..\src\test__vbap_module.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
