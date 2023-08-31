@@ -84,7 +84,7 @@ typedef enum {
  *
  * @param[in] phPm (&) address of powermap handle
  */
-void powermap_create(void** const phPm);
+void powermap_create(void** const phPm, int width);
 
 /**
  * Destroys an instance of the powermap

@@ -11,8 +11,8 @@
 
 int main(int argc, char** argv) {
 	// Check arguments
-	if (argc < 4) {
-		printf("Invalid arguments\nUse ./ambisonicTest input mode framerate\nMode:\n  0: PWD\n  1: MVDR\n  2: CroPaC\n");
+	if (argc < 5) {
+		printf("Invalid arguments\nUse ./ambisonicTest input mode framerate width\nMode:\n  0: PWD\n  1: MVDR\n  2: CroPaC\n  3: MUSIC\n  4: MUSIC LOG\n  5: MINNORM\n  6: MINNORM LOG\n");
 		return 1;
 	}
 	// Load audio file
@@ -22,9 +22,10 @@ int main(int argc, char** argv) {
 	const int channels = tw.numChannels;
 	const int order = sqrt(channels)-1;
 	const int blockSize = sampleRate/atoi(argv[3]);
+	const int powermapWidth = atoi(argv[4]);
 	// Initialize powermap
 	void* hPm;
-	powermap_create(&hPm);
+	powermap_create(&hPm, powermapWidth);
 	powermap_init(hPm, sampleRate);
 	powermap_setMasterOrder(hPm, order);
 	powermap_setPowermapMode(hPm, atoi(argv[2]));
@@ -52,6 +53,7 @@ int main(int argc, char** argv) {
 		int samplesRead = tinywav_read_f(&tw, data, blockSize);
 		if (samplesRead <= 0) break;
 		// Process samples
+		powermap_requestPmapUpdate(hPm);
 		powermap_analysis(hPm, data, channels, blockSize, 1);
 		float* dirsDeg, *pmap;
 		int nDirs, width, hfov, aspectRatio;
@@ -66,7 +68,7 @@ int main(int argc, char** argv) {
 		unsigned char image[width][height];
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
-				image[i][j] = (char)(255*pmap[(height-j-1)*width+(width-i-1)]);
+				image[i][j] = (char)(255*pmap[(width-i-1)*height+(height-j-1)]);
 			}
 		}
 		char filename[20];

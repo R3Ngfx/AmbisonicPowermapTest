@@ -34,7 +34,8 @@
 
 void powermap_create
 (
-    void ** const phPm
+    void ** const phPm,
+    int width
 )
 {
     powermap_data* pData = (powermap_data*)malloc1d(sizeof(powermap_data));
@@ -76,7 +77,7 @@ void powermap_create
     strcpy(pData->progressBarText,"");
     pData->codecStatus = CODEC_STATUS_NOT_INITIALISED;
     pData->procStatus = PROC_STATUS_NOT_ONGOING;
-    pData->dispWidth = 140;
+    pData->dispWidth = width;
 
     /* display */
     pData->pmap = NULL;
