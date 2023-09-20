@@ -11,8 +11,8 @@
 
 int main(int argc, char** argv) {
 	// Check arguments
-	if (argc < 5) {
-		printf("Invalid arguments\nUse ./ambisonicTest input mode framerate width\nMode:\n  0: PWD\n  1: MVDR\n  2: CroPaC\n  3: MUSIC\n  4: MUSIC LOG\n  5: MINNORM\n  6: MINNORM LOG\n");
+	if (argc < 6) {
+		printf("Invalid arguments\nUse ./ambisonicPowermapRenderer <input file> <mode> <framerate> <width> <output directory> \nMode:\n  0: PWD\n  1: MVDR\n  2: CroPaC\n  3: MUSIC\n  4: MUSIC LOG\n  5: MINNORM\n  6: MINNORM LOG\n");
 		return 1;
 	}
 	// Load audio file
@@ -71,8 +71,8 @@ int main(int argc, char** argv) {
 				image[i][j] = (char)(255*pmap[(width-i-1)*height+(height-j-1)]);
 			}
 		}
-		char filename[20];
-		sprintf(filename, "../out/%04d.png", frame);
+		char filename[2048];
+		sprintf(filename, "%s/%04d.png", argv[5], frame);
 		stbi_write_png(filename, width, height, 1, image, sizeof(unsigned char)*width);
 		printf("Frame %i processed\n", frame);
 		frame++;
