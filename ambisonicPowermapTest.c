@@ -72,7 +72,7 @@ int main(int argc, char** argv) {
 			}
 		}
 		char filename[2048];
-		sprintf(filename, "%s/%04d.png", argv[5], frame);
+		sprintf(filename, "%s/%04d.png", argv[5], atoi(argv[3])*frame);
 		stbi_write_png(filename, width, height, 1, image, sizeof(unsigned char)*width);
 		printf("Frame %i processed\n", frame);
 		frame++;
